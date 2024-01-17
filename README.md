@@ -4,6 +4,7 @@ Welcome to the Contact Management Application repository! This application provi
 
 Features
 User Registration
+
 New users can easily register by providing their details.
 Secure password hashing is implemented for enhanced user account security.
 User Login
