@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Management App</title>
+  <link rel="stylesheet" href="./style.css">
+  
+</head>
+<body>
+
+  <header>
+    <h1><i> Contact Management App </i></h1>
+  </header>
+
+  <section>
+    <div class="form-container">
+      <h2>Register</h2>
+      <form id="registration-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="email" required>
+
+        <label for="email">email:</label>
+        <input type="text" id="email" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" onclick="onPress()">Register</button>
+      </form>
+    </div>
+
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="login-username">Email:</label>
+        <input type="text" id="login-username" name="login-username" required>
+
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="login-password" required>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="contacts-container">
+    <h2>Contacts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="contact-list">
+        <!-- Contacts will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+
+<script>
+  function resp(data){
+    console.log(data);
+
+  }
+  function callback(res){
+    res.json().then(resp);
+
+  }
+  function onPress(){
+//alert("content to be loaded");
+    // console.log(data);
+     fetch("http://localhost:5001/api/users/register/", {method: "POST"}).then(callback);
+  }
+</script>
+
+</body>
+</html>
