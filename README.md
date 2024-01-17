@@ -2,8 +2,7 @@
 
 Welcome to the Contact Management Application repository! This application provides a user-friendly interface for managing contacts, featuring user registration, authentication, and CRUD (Create, Read, Update, Delete) functionalities. It utilizes a MongoDB database for efficient data storage and retrieval.
 
-#Features:
-
+Features
 User Registration
 New users can easily register by providing their details.
 Secure password hashing is implemented for enhanced user account security.
@@ -29,8 +28,7 @@ Getting Started
 Follow these steps to get the Contact Management Application up and running on your local machine:
 
 
-
-#Technologies Used:
+Technologies Used
 Node.js
 Express.js
 MongoDB
