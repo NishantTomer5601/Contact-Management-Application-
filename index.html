@@ -10,36 +10,40 @@
 <body>
 
   <header>
-    <h1><i> Contact Management App </i></h1>
+    <h1 class="mainn"><i> Contact Management App </i></h1>
   </header>
 
   <section>
     <div class="form-container">
       <h2>Register</h2>
       <form id="registration-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="email" required>
+        <label >Username:
+        <input type="text" class="username" name="email" required>
+        </label>
 
-        <label for="email">email:</label>
-        <input type="text" id="email" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <label >email:
+        <input type="email" class="email" name="username" required>
+        </label>
 
-        <button type="submit" src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" onclick="onPress()">Register</button>
+        <label >Password:
+        <input type="password" class="password" name="password" required>
+        </label>
+
+        <button type="submit" onclick="onPress()" class="aaa">Register</button>
       </form>
     </div>
 
     <div class="form-container">
       <h2>Login</h2>
       <form id="login-form">
-        <label for="login-username">Email:</label>
-        <input type="text" id="login-username" name="login-username" required>
+        <label >Email:
+        <input type="text" class="login-email"  required></label>
 
-        <label for="login-password">Password:</label>
-        <input type="password" id="login-password" name="login-password" required>
+        <label>Password:
+        <input type="password" class="login-password"  required></label>
 
-        <button type="submit">Login</button>
+        <button class="aa" type="submit" onclick="onPPress()">Login</button>
       </form>
     </div>
   </section>
@@ -61,20 +65,58 @@
   </div>
 
 <script>
-  function resp(data){
-    console.log(data);
 
-  }
-  function callback(res){
-    res.json().then(resp);
+  // function for registering user
+  function onPress(){  
+  var namee=document.querySelector(".username");
+  var emaill=document.querySelector(".email");
+  var passwordd=document.querySelector(".password");
+  
+  var button=document.querySelector(".aaa");
+  
 
+    var obj={
+      username:namee.value,
+      email:emaill.value,
+      password:passwordd.value
+    };
+fetch("http://localhost:5001/api/users/register/", {method: "POST",
+
+  headers:{
+    "Content-type":"application/json"
+  },
+  body:JSON.stringify(obj)
+});
   }
-  function onPress(){
-//alert("content to be loaded");
-    // console.log(data);
-     fetch("http://localhost:5001/api/users/register/", {method: "POST"}).then(callback);
-  }
+ 
+
+
+// function for login user
+  function onPPress(){
+  var emaill=document.querySelector(".login-email");
+  var passwordd=document.querySelector(".login-password");
+  
+  var button=document.querySelector(".aa");
+  
+
+    var obj={
+      
+      email:emaill.value,
+      password:passwordd.value
+    };
+fetch("http://localhost:5001/api/users/login", {method: "POST",
+
+  headers:{
+    "Content-type":"application/json"
+  },
+  body:JSON.stringify(obj)
+});
+
+}
+   
 </script>
 
 </body>
 </html>
+
+
